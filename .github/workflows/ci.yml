@@ -1,0 +1,21 @@
+name: Simple HTML CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check index.html exists
+        run: test -f index.html
+
+      - name: Print success message
+        run: echo "HTML file exists. CI passed successfully!"
